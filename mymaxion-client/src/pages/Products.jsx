@@ -14,17 +14,17 @@ export default function Products() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-50 to-beach-100 text-gray-800 py-16 md:py-24">
+      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slideInDown">Our Products</h1>
-          <p className="text-lg text-beach-100 max-w-3xl animate-slideUp">
+          <p className="text-lg text-gray-50 max-w-3xl animate-slideUp">
             Explore our comprehensive range of innovative products designed to meet industry-specific needs.
           </p>
         </div>
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 md:py-16 bg-white border-b">
+      <section className="py-12 md:py-16 bg-amber-50 to to-beach-50 border-b">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Filter by Category</h2>
           <div className="flex flex-wrap gap-3">
@@ -34,8 +34,8 @@ export default function Products() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full font-semibold transition duration-300 ${
                   selectedCategory === category
-                    ? 'bg-ocean-600 text-white'
-                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                    ? 'bg-ocean-600 text-black'
+                    : 'bg-amber-100 text-gray-800 hover:bg-gray-200'
                 }`}
               >
                 {category}
@@ -46,7 +46,7 @@ export default function Products() {
       </section>
 
       {/* Products Grid */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           {filteredProducts.length === 0 ? (
             <div className="text-center py-12">
@@ -68,7 +68,7 @@ export default function Products() {
       </section>
 
       {/* Additional Info Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
@@ -100,7 +100,7 @@ export default function Products() {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center px-6 py-3 bg-ocean-600 text-white font-bold rounded-lg hover:bg-ocean-700 transition duration-300"
+                className="inline-flex items-center px-6 py-3 bg-ocean-600 text-gray-900 font-bold rounded-lg hover:bg-ocean-700 transition duration-300"
               >
                 Get a Custom Quote
               </a>

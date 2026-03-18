@@ -43,17 +43,17 @@ export default function Contact() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-50 to-beach-100 text-gray-800 py-16 md:py-24">
+      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-900 py-20 md:py-32 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slideInDown">Contact Us</h1>
-          <p className="text-lg text-beach-100 max-w-3xl animate-slideUp">
+          <p className="text-lg text-gray-50 max-w-3xl animate-slideUp">
             Get in touch with our expert team. We're here to answer your questions and provide solutions.
           </p>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Info */}
@@ -63,7 +63,7 @@ export default function Contact() {
               <div className="space-y-8">
                 {/* Email */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-ocean-600 text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-ocean-600 text-gray-900 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail size={24} />
                   </div>
                   <div>
@@ -243,7 +243,7 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Frequently Asked Questions</h2>
 

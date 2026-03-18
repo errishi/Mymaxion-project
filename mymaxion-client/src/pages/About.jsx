@@ -36,7 +36,7 @@ export default function About() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-500 to-beach-600 text-gray-800 py-16 md:py-24">
+      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slideInDown">About MyMaxion</h1>
           <p className="text-lg text-beach-100 max-w-3xl animate-slideUp">
@@ -46,7 +46,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Mission */}
@@ -69,7 +69,7 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Core Values</h2>
@@ -80,7 +80,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white rounded-lg p-8 text-center hover:shadow-lg transition duration-300 animate-fadeIn">
+              <div key={index} className="bg-gray-50 rounded-lg p-8 text-center hover:shadow-lg transition duration-300 animate-fadeIn">
                 <div className="flex justify-center mb-4 text-ocean-600">{value.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
                 <p className="text-gray-600 text-sm">{value.description}</p>
@@ -91,7 +91,7 @@ export default function About() {
       </section>
 
       {/* Timeline/Milestones */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
@@ -113,7 +113,7 @@ export default function About() {
                 >
                   {/* Content */}
                   <div className="md:w-1/2">
-                    <div className={`bg-white p-6 rounded-lg shadow-md ${index % 2 === 0 ? 'md:text-right' : ''}`}>
+                    <div className={`bg-gray-50 p-6 rounded-lg shadow-md ${index % 2 === 0 ? 'md:text-right' : ''}`}>
                       <div className="text-ocean-600 font-bold text-lg mb-2">{milestone.year}</div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{milestone.title}</h3>
                       <p className="text-gray-600">{milestone.description}</p>
@@ -135,7 +135,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Dedicated Teams</h2>
@@ -164,7 +164,7 @@ export default function About() {
             ].map((team, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg p-8 text-center hover:shadow-lg transition duration-300 animate-fadeIn"
+                className="bg-gray-50 rounded-lg p-8 text-center hover:shadow-lg transition duration-300 animate-fadeIn"
               >
                 <div className="text-4xl font-bold text-ocean-600 mb-2">{team.count}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{team.division}</h3>
@@ -176,7 +176,7 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 md:py-24 bg-ocean-600 text-white">
+      <section className="py-16 md:py-24 bg-amber-50 text-black">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
@@ -187,7 +187,7 @@ export default function About() {
             ].map((stat, index) => (
               <div key={index} className="animate-slideUp">
                 <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
-                <p className="text-beach-100">{stat.label}</p>
+                <p className="text-black">{stat.label}</p>
               </div>
             ))}
           </div>

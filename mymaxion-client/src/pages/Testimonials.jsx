@@ -6,17 +6,17 @@ export default function Testimonials() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-50 to-beach-100 text-gray-800 py-16 md:py-24">
+      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slideInDown">Client Testimonials</h1>
-          <p className="text-lg text-beach-100 max-w-3xl animate-slideUp">
+          <p className="text-lg text-gray-50 max-w-3xl animate-slideUp">
             Hear from our satisfied clients about their experiences working with MyMaxion.
           </p>
         </div>
       </section>
 
       {/* Featured Testimonial */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Featured Testimonials</h2>
           <TestimonialSlider testimonials={testimonials} />
@@ -24,7 +24,7 @@ export default function Testimonials() {
       </section>
 
       {/* All Testimonials Grid */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">All Client Feedback</h2>
 
@@ -32,7 +32,7 @@ export default function Testimonials() {
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-white rounded-lg shadow-md border-l-4 border-ocean-600 p-8 hover:shadow-lg transition duration-300 animate-fadeIn"
+                className="bg-gray-50 rounded-lg shadow-md border-l-4 border-ocean-600 p-8 hover:shadow-lg transition duration-300 animate-fadeIn"
               >
                 {/* Stars */}
                 <div className="flex space-x-1 mb-4">
@@ -63,7 +63,7 @@ export default function Testimonials() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 md:py-24 bg-ocean-600 text-white">
+      <section className="py-16 md:py-24 bg-amber-50 text-gray-900">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
@@ -74,7 +74,7 @@ export default function Testimonials() {
             ].map((stat, index) => (
               <div key={index} className="animate-slideUp">
                 <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
-                <p className="text-beach-100">{stat.label}</p>
+                <p className="text-gray-900">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -82,7 +82,7 @@ export default function Testimonials() {
       </section>
 
       {/* Industry Recognition */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Industry Recognition</h2>
 
@@ -117,15 +117,15 @@ export default function Testimonials() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-ocean-600 text-white">
+      <section className="py-16 md:py-24 bg-amber-50 text-gray-900">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Satisfied Clients</h2>
-          <p className="text-lg text-beach-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 mb-8 max-w-2xl mx-auto">
             Experience the MyMaxion difference. Let us help your business achieve its goals.
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-white text-ocean-600 font-bold rounded-lg hover:bg-ocean-50 transition duration-300"
+            className="inline-flex items-center px-8 py-4 bg-amber-50 text-gray-900 font-bold rounded-lg hover:bg-amber-200 transition duration-300"
           >
             Start Your Project Today
           </a>

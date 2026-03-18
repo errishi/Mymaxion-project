@@ -6,7 +6,7 @@ export default function Services() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-50 to-beach-100 text-gray-800 py-16 md:py-24">
+      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slideInDown">Our Services</h1>
           <p className="text-lg text-beach-100 max-w-3xl animate-slideUp">
@@ -16,7 +16,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map(service => (
@@ -27,7 +27,7 @@ export default function Services() {
       </section>
 
       {/* Service Categories */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Service Categories</h2>
 
@@ -120,7 +120,7 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Our Service Process</h2>
 
@@ -167,15 +167,15 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-ocean-600 text-white">
+      <section className="py-16 md:py-24 bg-amber-50 text-gray-900">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Need a Specific Service?</h2>
-          <p className="text-lg text-beach-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 mb-8 max-w-2xl mx-auto">
             Contact our expert team to discuss your project requirements and find the perfect solution.
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-white text-ocean-600 font-bold rounded-lg hover:bg-ocean-50 transition duration-300"
+            className="inline-flex items-center px-8 py-4 bg-amber-200 font-bold rounded-lg hover:bg-amber-500 transition duration-300"
           >
             Request a Consultation
           </a>

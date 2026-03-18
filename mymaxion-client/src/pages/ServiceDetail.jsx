@@ -28,7 +28,7 @@ export default function ServiceDetail() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-50 to-beach-100 text-gray-800 py-12 md:py-20">
+      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <p className="text-ocean-200 mb-2">
             <Link to="/services" className="hover:text-white">Services</Link> / {service.name}
@@ -39,7 +39,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Service Overview */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Service Image */}
@@ -74,7 +74,7 @@ export default function ServiceDetail() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-ocean-600 text-white font-bold rounded-lg hover:bg-ocean-700 transition duration-300 group"
+                  className="inline-flex items-center justify-center px-8 py-3 bg-amber-200 text-gray-900 font-bold rounded-lg hover:bg-ocean-700 transition duration-300 group"
                 >
                   Request Consultation
                   <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition" />
@@ -92,7 +92,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Service Features */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose Our Service?</h2>
 
@@ -125,7 +125,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Service Process */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Our Service Process</h2>
 
@@ -155,7 +155,7 @@ export default function ServiceDetail() {
 
       {/* Related Services */}
       {relatedServices.length > 0 && (
-        <section className="py-16 md:py-24 bg-gray-50">
+        <section className="py-16 md:py-24 bg-amber-50">
           <div className="container mx-auto max-w-6xl px-4 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-12">Related Services</h2>
 
@@ -184,15 +184,15 @@ export default function ServiceDetail() {
       )}
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-ocean-600 text-white">
+      <section className="py-16 md:py-24 bg-amber-50 text-gray-900">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-lg text-ocean-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-ocean-500 mb-8 max-w-2xl mx-auto">
             Contact our team today to schedule a consultation and discuss how we can help you.
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-white text-ocean-600 font-bold rounded-lg hover:bg-ocean-50 transition duration-300 group"
+            className="inline-flex items-center px-8 py-4 bg-amber-200 font-bold rounded-lg hover:bg-ocean-500 transition duration-300 group"
           >
             Schedule Consultation
             <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition" />

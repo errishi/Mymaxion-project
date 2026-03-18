@@ -46,7 +46,7 @@ export default function Sitemap() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-50 to-beach-100 text-gray-800 py-16 md:py-24">
+      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slideInDown">Sitemap</h1>
           <p className="text-lg text-beach-100 animate-slideUp">
@@ -56,13 +56,13 @@ export default function Sitemap() {
       </section>
 
       {/* Sitemap Content */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {siteStructure.map((section, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-lg p-8 animate-fadeIn"
+                className="bg-amber-100 rounded-lg p-8 animate-fadeIn"
               >
                 <h2 className="text-xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-ocean-600">
                   {section.section}
@@ -86,7 +86,7 @@ export default function Sitemap() {
       </section>
 
       {/* Additional Info */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Website Structure</h2>
@@ -132,13 +132,13 @@ export default function Sitemap() {
       </section>
 
       {/* Search Suggestion */}
-      <section className="py-16 md:py-24 bg-ocean-50">
+      <section className="py-16 md:py-24 bg-beach-100">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Can't Find What You're Looking For?</h2>
           <p className="text-gray-700 mb-6">Contact our support team for help navigating our website or finding specific information.</p>
           <a
             href="/contact"
-            className="inline-flex items-center px-8 py-3 bg-ocean-600 text-white font-bold rounded-lg hover:bg-ocean-700 transition duration-300"
+            className="inline-flex items-center px-8 py-3 bg-amber-100 text-gray-900 font-bold rounded-lg hover:bg-amber-500 transition duration-300"
           >
             Contact Support
           </a>

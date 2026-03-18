@@ -9,8 +9,8 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="sticky top-0 z-50 bg-amber-50 shadow-md">
-      <div className="container mx-auto max-w-6xl px-4 lg:px-8">
+    <nav className="sticky top-0 z-50 bg-ocean-50 shadow-md">
+      <div className="container mx-auto max-w-6xl px-5 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 font-bold text-xl text-ocean-600">
