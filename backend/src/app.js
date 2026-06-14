@@ -56,6 +56,10 @@ app.use('/api/analytics', analyticsRouter);
 import filesRouter from './routes/files.js';
 app.use('/api/files', filesRouter);
 
+app.get("/", (req,res) => {
+  res.send("Welcome to mymaxion..");
+});
+
 // static assets
 app.use('/assets', express.static('public'));
 
