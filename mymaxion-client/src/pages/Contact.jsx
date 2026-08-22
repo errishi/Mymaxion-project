@@ -10,21 +10,28 @@ export default function Contact() {
     company: '',
     subject: '',
     message: '',
+    resume: null,
   });
 
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
+    const { name, value, files } = e.target;
+    if (name === 'resume') {
+      setFormData(prev => ({
+        ...prev,
+        resume: files ? files[0] : null,
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real application, you would send this data to a server
     console.log('Form submitted:', formData);
     setSubmitted(true);
     setFormData({
@@ -34,9 +41,9 @@ export default function Contact() {
       company: '',
       subject: '',
       message: '',
+      resume: null,
     });
     
-    // Reset success message after 5 seconds
     setTimeout(() => setSubmitted(false), 5000);
   };
 
@@ -63,7 +70,7 @@ export default function Contact() {
               <div className="space-y-8">
                 {/* Email */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-ocean-600 text-gray-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-ocean-700 text-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail size={24} />
                   </div>
                   <div>
@@ -76,7 +83,7 @@ export default function Contact() {
 
                 {/* Phone */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-ocean-600 text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-ocean-700 text-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone size={24} />
                   </div>
                   <div>
@@ -87,7 +94,7 @@ export default function Contact() {
 
                 {/* Mobile */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-ocean-600 text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-ocean-700 text-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Smartphone size={24} />
                   </div>
                   <div>
@@ -98,7 +105,7 @@ export default function Contact() {
 
                 {/* Location */}
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-ocean-600 text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-ocean-700 text-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin size={24} />
                   </div>
                   <div>
@@ -208,6 +215,21 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* Resume Upload Field */}
+                <div>
+                  <label htmlFor="resume" className="block text-sm font-semibold text-gray-900 mb-2">
+                    Attach Resume / CV (Optional)
+                  </label>
+                  <input
+                    type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-600 file:mr-4 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-ocean-100 file:text-ocean-700 hover:file:bg-ocean-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-ocean-600"
+                  />
+                </div>
+
                 {/* Message */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
@@ -228,7 +250,7 @@ export default function Contact() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-ocean-600 text-white font-bold rounded-lg hover:bg-ocean-700 transition duration-300"
+                  className="w-full px-6 py-3 bg-ocean-700 text-white font-bold rounded-lg hover:bg-ocean-700 transition duration-300"
                 >
                   Send Message
                 </button>

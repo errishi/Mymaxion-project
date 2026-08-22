@@ -200,7 +200,7 @@ export default function Jobs() {
                   <div className="md:w-40">
                     <a
                       href="/contact"
-                      className="block px-6 py-3 bg-ocean-600 text-white font-bold rounded-lg hover:bg-ocean-700 transition duration-300 text-center whitespace-nowrap"
+                      className="block px-6 py-3 text-gray-900 font-bold rounded-lg active:scale-95 hover:bg-green-500 transition duration-300 text-center whitespace-nowrap"
                     >
                       Apply Now
                     </a>
@@ -213,7 +213,7 @@ export default function Jobs() {
       </section>
 
       {/* Application Process */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-100">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Application Process</h2>
 
@@ -241,7 +241,7 @@ export default function Jobs() {
               },
             ].map((item, index) => (
               <div key={index} className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition duration-300 animate-fadeIn">
-                <div className="w-12 h-12 bg-ocean-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
+                <div className="w-12 h-12 bg-green-300 text-gray-900 rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
                   {item.step}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
@@ -253,15 +253,15 @@ export default function Jobs() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-ocean-600 text-white">
+      <section className="py-16 md:py-24 bg-ocean-600 text-gray-900">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Make an Impact?</h2>
-          <p className="text-lg text-beach-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-900 mb-8 max-w-2xl mx-auto">
             If you didn't find a matching position, send us your resume and let us know what roles interest you.
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-white text-ocean-600 font-bold rounded-lg hover:bg-ocean-50 transition duration-300"
+            className="inline-flex items-center px-8 py-4 bg-white text-ocean-700 font-bold rounded-lg hover:bg-gray-200 active:scale-100 transition duration-300"
           >
             Send Resume
           </a>

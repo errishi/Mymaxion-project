@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 import { products } from '../data';
+import { ProductCard } from '../Components/Cards';
 
 export default function ProductDetail() {
   const { slug } = useParams();
@@ -43,8 +44,8 @@ export default function ProductDetail() {
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Product Image */}
-            <div className="bg-gradient-to-br from-beach-100 to-ocean-50 rounded-lg h-80 flex items-center justify-center text-beach-600 font-semibold text-center text-xl animate-slideInDown">
-              Product Image: {product.name}
+            <div className="glass-panel h-80 overflow-hidden rounded-lg animate-slideInDown">
+              <img src={product.image} alt={product.name} className="h-full w-full object-cover" />
             </div>
 
             {/* Product Info */}
@@ -150,24 +151,7 @@ export default function ProductDetail() {
             <h2 className="text-3xl font-bold text-gray-900 mb-12">Related Products</h2>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {relatedProducts.map(prod => (
-                <div key={prod.id} className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 animate-fadeIn">
-                  <div className="w-full h-40 bg-gradient-to-br from-beach-100 to-ocean-50 flex items-center justify-center text-beach-600 font-semibold text-center">
-                    {prod.name}
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{prod.name}</h3>
-                    <p className="text-gray-600 text-sm mb-4">{prod.description}</p>
-                    <Link
-                      to={`/products/${prod.slug}`}
-                      className="inline-flex items-center text-ocean-600 font-semibold hover:text-ocean-700"
-                    >
-                      View Details
-                      <ArrowRight size={16} className="ml-2" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
+              {relatedProducts.map(prod => <ProductCard key={prod.id} product={prod} />)}
             </div>
           </div>
         </section>

@@ -1,200 +1,201 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Shield, Users, Droplet } from 'lucide-react';
-import { ProductCard } from '../Components/Cards';
-import { ServiceCard } from '../Components/Cards';
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  Droplets,
+  Factory,
+  Leaf,
+  ShieldCheck,
+} from 'lucide-react';
+import { ProductCard, ServiceCard } from '../Components/Cards';
 import { products, services } from '../data';
 
+const principles = [
+  {
+    icon: Droplets,
+    title: 'Water, made better',
+    text: 'Treatment systems engineered around performance, purity, and responsible resource use.',
+  },
+  {
+    icon: Factory,
+    title: 'Built for industry',
+    text: 'Practical equipment and packaging lines that keep operations moving with confidence.',
+  },
+  {
+    icon: Leaf,
+    title: 'Progress with purpose',
+    text: 'Environmental expertise that helps ambitious teams meet standards and plan ahead.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'A partner for the long run',
+    text: 'Thoughtful commissioning, responsive support, and solutions that last.',
+  },
+];
+
 export default function Home() {
-  const featuredProducts = products.slice(0, 3);
-  const featuredServices = services.slice(0, 3);
-
   return (
-    <div>
+    <div className="page-shell">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-ocean-600 rounded-full opacity-10 -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-yellow-200 rounded-full opacity-10 -ml-36 -mb-36"></div>
-
-        <div className="container mx-auto max-w-6xl px-4 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="animate-slideInDown">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Engineering Excellence in Water Treatment & Packaging
-              </h1>
-              <p className="text-lg text-beach-100 mb-8 max-w-lg">
-                Leading provider of innovative solutions for water treatment plants, packaging machinery, and environmental services across multiple industries.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/products"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-ocean-700 font-bold rounded-lg hover:bg-ocean-50 transition duration-300 group"
-                >
-                  Explore Products
-                  <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition" />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-ocean-700 transition duration-300"
-                >
-                  Get in Touch
-                </Link>
-              </div>
+      <section className="relative px-4 pb-20 pt-20 sm:px-6 lg:pt-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_.95fr]">
+          <div className="animate-slideInDown">
+            <div className="section-kicker mb-5">
+              Engineering that moves the world forward
             </div>
 
-            {/* Right Side - Stats */}
-            <div className="grid grid-cols-2 gap-4 animate-slideUp">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold text-ocean-200 mb-2">500+</div>
-                <p className="text-white/80">Projects Completed</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold text-ocean-200 mb-2">50+</div>
-                <p className="text-white/80">Products & Services</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold text-ocean-200 mb-2">25+</div>
-                <p className="text-white/80">Years Experience</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <div className="text-3xl font-bold text-ocean-200 mb-2">10+</div>
-                <p className="text-white/80">Industry Sectors</p>
+            <h1 className="font-display max-w-3xl text-5xl font-extrabold leading-[1.02] tracking-[-.055em] text-slate-900 sm:text-6xl lg:text-7xl">
+              Clearer water.
+              <br />
+              <span className="text-teal-700">Smarter industry.</span>
+            </h1>
+
+            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
+              MyMaxion brings water treatment, environmental intelligence, and
+              packaging technology together for businesses ready to operate with
+              more clarity.
+            </p>
+
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link to="/contact" className="btn-primary">
+                Talk to our team <ArrowUpRight size={17} />
+              </Link>
+              <Link to="/products" className="btn-secondary">
+                Explore capabilities <ArrowRight size={17} />
+              </Link>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-slate-500">
+              <span className="flex items-center gap-2">
+                <CheckCircle2 size={16} className="text-teal-600" />
+                25+ years of expertise
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle2 size={16} className="text-teal-600" />
+                500+ projects delivered
+              </span>
+            </div>
+          </div>
+
+          <div className="relative animate-slideUp">
+            <div className="absolute -inset-5 rounded-[2rem] bg-teal-200/25 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[1.6rem] border border-white/80 bg-white/45 p-3 shadow-2xl shadow-teal-900/10 backdrop-blur-xl">
+              <img
+                src="/homeimage.jpeg"
+                alt="MyMaxion water treatment infrastructure"
+                className="h-[420px] w-full rounded-[1.15rem] object-cover sm:h-[510px]"
+              />
+              <div className="glass absolute bottom-7 left-7 right-7 flex items-center justify-between rounded-xl px-5 py-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-teal-700">
+                    The MyMaxion standard
+                  </p>
+                  <p className="font-display mt-1 font-bold text-slate-800">
+                    Designed for real-world impact
+                  </p>
+                </div>
+                <ArrowUpRight className="text-teal-700" size={21} />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 md:py-24 bg-amber-50">
-        <div className="container mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose MyMaxion</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We deliver innovative, sustainable solutions backed by expertise and commitment to excellence.
-            </p>
-          </div>
+      {/* Principles Section */}
+      <section className="section-wrap pt-10">
+        <div className="mb-10 max-w-2xl">
+          <div className="section-kicker mb-4">What we bring</div>
+          <h2 className="section-title">
+            Technical depth, made easy to work with.
+          </h2>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: <Zap size={32} className="text-ocean-600" />,
-                title: 'Innovation',
-                description: 'Cutting-edge technology and engineering solutions',
-              },
-              {
-                icon: <Shield size={32} className="text-ocean-600" />,
-                title: 'Quality',
-                description: 'ISO certified processes and quality standards',
-              },
-              {
-                icon: <Users size={32} className="text-ocean-600" />,
-                title: 'Expertise',
-                description: '25+ years of industry experience and knowledge',
-              },
-              {
-                icon: <Droplet size={32} className="text-ocean-600" />,
-                title: 'Sustainability',
-                description: 'Eco-friendly and environmentally responsible',
-              },
-            ].map((feature, index) => (
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {principles.map((principle) => {
+            const PrincipleIcon = principle.icon;
+            return (
               <div
-                key={index}
-                className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition duration-300 animate-slideUp"
+                key={principle.title}
+                className="glass-panel card-hover p-6"
               >
-                <div className="flex justify-center mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
+                <PrincipleIcon size={25} className="mb-8 text-teal-700" />
+                <h3 className="font-display text-lg font-extrabold text-slate-900">
+                  {principle.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  {principle.text}
+                </p>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 md:py-24 bg-amber-50">
-        <div className="container mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="flex justify-between items-center mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Featured Products</h2>
-              <p className="text-gray-600 mt-2">Innovative solutions for your needs</p>
-            </div>
-            <Link
-              to="/products"
-              className="hidden sm:inline-flex items-center text-ocean-600 font-semibold hover:text-ocean-700"
-            >
-              View All
-              <ArrowRight size={20} className="ml-2" />
-            </Link>
+      <section className="section-wrap">
+        <div className="mb-10 flex items-end justify-between gap-5">
+          <div>
+            <div className="section-kicker mb-4">Featured solutions</div>
+            <h2 className="section-title">Built around your next milestone.</h2>
           </div>
+          <Link
+            to="/products"
+            className="hidden items-center gap-2 text-sm font-bold text-teal-700 sm:flex"
+          >
+            View all products <ArrowRight size={17} />
+          </Link>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/products"
-              className="inline-flex items-center px-8 py-3 border-2 border-ocean-600 text-ocean-600 font-bold rounded-lg hover:bg-ocean-50 transition duration-300 group"
-            >
-              Explore All Products
-              <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition" />
-            </Link>
-          </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {products.slice(0, 3).map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </section>
 
-      {/* Featured Services */}
-      <section className="py-16 md:py-24 bg-amber-50">
-        <div className="container mx-auto max-w-6xl px-4 lg:px-8">
-          <div className="flex justify-between items-center mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Services</h2>
-              <p className="text-gray-600 mt-2">Comprehensive solutions tailored to your requirements</p>
-            </div>
-            <Link
-              to="/services"
-              className="hidden sm:inline-flex items-center text-ocean-600 font-semibold hover:text-ocean-700"
-            >
-              View All
-              <ArrowRight size={20} className="ml-2" />
-            </Link>
+      {/* Services Section */}
+      <section className="section-wrap pt-0">
+        <div className="mb-10 flex items-end justify-between gap-5">
+          <div>
+            <div className="section-kicker mb-4">Our expertise</div>
+            <h2 className="section-title">One partner. The full picture.</h2>
           </div>
+          <Link
+            to="/services"
+            className="hidden items-center gap-2 text-sm font-bold text-teal-700 sm:flex"
+          >
+            View all services <ArrowRight size={17} />
+          </Link>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredServices.map((service) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/services"
-              className="inline-flex items-center px-8 py-3 border-2 border-ocean-600 text-ocean-600 font-bold rounded-lg hover:bg-ocean-50 transition duration-300 group"
-            >
-              Explore All Services
-              <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition" />
-            </Link>
-          </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.slice(0, 3).map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-amber-50 text-black-100">
-        <div className="container mx-auto max-w-6xl px-4 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
-          <p className="text-lg text-black-100 mb-8 max-w-2xl mx-auto">
-            Contact our expert team today to discuss your specific requirements and discover how MyMaxion can help.
-          </p>
+      <section className="mx-4 mb-16 overflow-hidden rounded-[1.5rem] bg-slate-900 px-6 py-14 text-white sm:mx-6 lg:mx-auto lg:max-w-6xl lg:px-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+          <div>
+            <div className="mb-4 text-xs font-bold uppercase tracking-[.16em] text-teal-300">
+              Let&apos;s build what&apos;s next
+            </div>
+            <h2 className="font-display max-w-2xl text-3xl font-extrabold tracking-[-.04em] sm:text-4xl">
+              Have a complex requirement? Start with a conversation.
+            </h2>
+            <p className="mt-4 max-w-xl leading-7 text-slate-300">
+              Tell us where you are today. We&apos;ll help you find the clearest
+              path forward.
+            </p>
+          </div>
           <Link
             to="/contact"
-            className="inline-flex items-center px-8 py-4 bg-yellow-500 text-ocean-600 font-bold rounded-lg hover:bg-yellow-100 transition duration-300 group"
+            className="inline-flex items-center gap-2 rounded-lg bg-amber-400 px-5 py-3 font-bold text-slate-900 transition hover:bg-amber-300"
           >
-            Get Your Free Consultation
-            <ArrowRight size={20} className="ml-2 bg-color group-hover:translate-x-1 transition" />
+            Contact MyMaxion <ArrowUpRight size={17} />
           </Link>
         </div>
       </section>

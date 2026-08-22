@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { navItems } from '../data';
 
 export default function Navbar() {
@@ -9,22 +9,23 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="sticky top-0 z-50 bg-ocean-50 shadow-md">
-      <div className="container mx-auto max-w-6xl px-5 lg:px-8">
+    <nav className="sticky top-0 z-50 px-3 pt-3 sm:px-5">
+      <div className="glass mx-auto max-w-7xl rounded-2xl">
+      <div className="container mx-auto max-w-6xl px-4 lg:px-7">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 font-bold text-xl text-ocean-600">
-           <img src="/logo2.jpeg" alt="MyMaxion Logo" className="h-8 w-auto" />
-            <span className="hidden sm:inline">MyMaxion</span>
+          <Link to="/" className="flex items-center gap-3 font-display font-extrabold text-xl text-slate-800">
+           <img src="/logo2.jpeg" alt="MyMaxion Logo" className="h-9 w-9 rounded-xl object-cover" />
+            <span>MyMaxion<span className="text-teal-600">.</span></span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className="px-3 py-2 rounded-md text-sm font-medium text-gray-900 hover:text-ocean-700 hover:bg-beach-100 transition duration-300"
+                className="px-3 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-teal-700 hover:bg-white/60 transition duration-300"
               >
                 {item.label}
               </Link>
@@ -34,15 +35,15 @@ export default function Navbar() {
           {/* CTA Button - Desktop */}
           <Link
             to="/contact"
-            className="hidden lg:block px-6 py-2 bg-amber-500 text-white font-semibold rounded-lg hover:bg-ocean-700 transition duration-300"
+            className="btn-primary hidden lg:inline-flex"
           >
-            Get Quote
+            Start a conversation <ArrowUpRight size={16} />
           </Link>
 
           {/* Mobile menu button */}
           <button
             onClick={toggleMenu}
-            className="lg:hidden inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100"
+            className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg hover:bg-white/60"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -51,12 +52,12 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden pb-4 space-y-2 animate-slideInDown">
+          <div className="lg:hidden border-t border-white/60 pb-4 pt-3 space-y-1 animate-slideInDown">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-ocean-700 hover:bg-beach-600 transition duration-300"
+                className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-teal-700 hover:bg-white/60 transition duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -64,13 +65,14 @@ export default function Navbar() {
             ))}
             <Link
               to="/contact"
-              className="block w-full px-3 py-2 bg-ocean-600 text-white font-semibold rounded-lg hover:bg-ocean-700 transition duration-300 text-center"
+              className="btn-primary mt-2 w-full justify-center"
               onClick={() => setIsOpen(false)}
             >
-              Get Quote
+              Start a conversation
             </Link>
           </div>
         )}
+      </div>
       </div>
     </nav>
   );

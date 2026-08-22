@@ -6,46 +6,46 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="mt-10 bg-slate-950 text-white">
       <div className="container mx-auto max-w-6xl px-4 lg:px-8">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+        <div className="grid grid-cols-1 gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-ocean-600 rounded-lg flex items-center justify-center font-bold">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-600 font-display font-extrabold">
                 M
               </div>
-              <span className="font-bold text-xl">MyMaxion</span>
+              <span className="font-display text-xl font-extrabold">MyMaxion<span className="text-amber-400">.</span></span>
             </div>
-            <p className="text-gray-400 text-sm mb-4">{companyInfo.tagline}</p>
+            <p className="mb-5 max-w-xs text-sm leading-6 text-slate-400">{companyInfo.tagline}</p>
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-sm">
-                <Mail size={16} className="text-ocean-400" />
-                <a href={`mailto:${companyInfo.email}`} className="hover:text-ocean-400 transition">
+                <Mail size={16} className="text-teal-400" />
+                <a href={`mailto:${companyInfo.email}`} className="text-slate-300 transition hover:text-teal-300">
                   {companyInfo.email}
                 </a>
               </div>
               <div className="flex items-center space-x-2 text-sm">
-                <Phone size={16} className="text-ocean-400" />
-                <span>{companyInfo.phone}</span>
+                <Phone size={16} className="text-teal-400" />
+                <span className="text-slate-300">{companyInfo.phone}</span>
               </div>
               <div className="flex items-start space-x-2 text-sm">
-                <MapPin size={16} className="text-ocean-400 mt-1" />
-                <span className="flex-1">{companyInfo.address}</span>
+                <MapPin size={16} className="mt-1 text-teal-400" />
+                <span className="flex-1 text-slate-300">{companyInfo.address}</span>
               </div>
             </div>
           </div>
 
           {/* Company Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Company</h3>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-[.16em] text-teal-300">Company</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 hover:text-primary-400 transition text-sm"
+                    className="text-sm text-slate-400 transition hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -56,13 +56,13 @@ export default function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Services</h3>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-[.16em] text-teal-300">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 hover:text-primary-400 transition text-sm"
+                    className="text-sm text-slate-400 transition hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -73,13 +73,13 @@ export default function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Support</h3>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-[.16em] text-teal-300">Support</h3>
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 hover:text-primary-400 transition text-sm"
+                    className="text-sm text-slate-400 transition hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -90,32 +90,32 @@ export default function Footer() {
         </div>
 
         {/* Social Media & Copyright */}
-        <div className="border-t border-gray-700 py-8">
+        <div className="border-t border-white/10 py-7">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 mb-4 md:mb-0">
               <a
                 href="#"
-                className="text-gray-400 hover:text-ocean-400 transition"
+                className="text-slate-500 transition hover:text-teal-300"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-ocean-400 transition"
+                className="text-slate-500 transition hover:text-teal-300"
                 aria-label="Twitter"
               >
                 <Twitter size={20} />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-ocean-400 transition"
+                className="text-slate-500 transition hover:text-teal-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
               </a>
             </div>
-            <p className="text-gray-400 text-sm text-center md:text-right">
+            <p className="text-center text-sm text-slate-500 md:text-right">
               © {currentYear} MyMaxion. All rights reserved. | Designed with <span className="text-ocean-400"></span> by MyMaxion Team
             </p>
           </div>

@@ -34,7 +34,7 @@ export default function Products() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full font-semibold transition duration-300 ${
                   selectedCategory === category
-                    ? 'bg-ocean-600 text-black'
+                    ? 'bg-ocean-500 text-black'
                     : 'bg-amber-100 text-gray-800 hover:bg-gray-200'
                 }`}
               >
