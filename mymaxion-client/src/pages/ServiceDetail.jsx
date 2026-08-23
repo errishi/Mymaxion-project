@@ -1,10 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowRight, Check, Users, Clock, Award } from 'lucide-react';
-import { services } from '../data';
+import { getService, getServices } from '../api';
+import useApi from '../hooks/useApi';
 
 export default function ServiceDetail() {
   const { slug } = useParams();
-  const service = services.find(s => s.slug === slug);
+  const serviceState = useApi(() => getService(slug), [slug]);
+  const servicesState = useApi(getServices);
+  const service = serviceState.data;
+  const services = servicesState.data || [];
+
+  if (serviceState.loading) return <div className="min-h-screen flex items-center justify-center">Loading service...</div>;
 
   if (!service) {
     return (
@@ -23,7 +29,7 @@ export default function ServiceDetail() {
     );
   }
 
-  const relatedServices = services.filter(s => s.id !== service.id).slice(0, 2);
+  const relatedServices = services.filter(s => s.slug !== service.slug).slice(0, 2);
 
   return (
     <div>

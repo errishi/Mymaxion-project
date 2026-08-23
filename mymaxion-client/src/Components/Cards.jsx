@@ -52,4 +52,3 @@ export function ServiceCard({ service }) {
   );
 }
 
-export default { ProductCard, ServiceCard };

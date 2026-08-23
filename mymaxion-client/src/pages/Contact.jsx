@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Smartphone } from 'lucide-react';
 import { companyInfo } from '../data';
+import { submitEnquiry } from '../api';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,8 @@ export default function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -30,21 +33,19 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      subject: '',
-      message: '',
-      resume: null,
-    });
-    
-    setTimeout(() => setSubmitted(false), 5000);
+    setSubmitting(true);
+    setError('');
+    try {
+      await submitEnquiry({ ...formData, source: 'website' });
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '', resume: null });
+    } catch (requestError) {
+      setError(requestError.response?.data?.error || requestError.message || 'Unable to send your message.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -130,6 +131,7 @@ export default function Contact() {
                   Thank you for your message! We'll get back to you soon.
                 </div>
               )}
+              {error && <div className="mb-6 rounded-lg border border-red-400 bg-red-100 p-4 text-red-700">{error}</div>}
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Name */}
@@ -250,9 +252,10 @@ export default function Contact() {
                 {/* Submit Button */}
                 <button
                   type="submit"
+                  disabled={submitting}
                   className="w-full px-6 py-3 bg-ocean-700 text-white font-bold rounded-lg hover:bg-ocean-700 transition duration-300"
                 >
-                  Send Message
+                  {submitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
 

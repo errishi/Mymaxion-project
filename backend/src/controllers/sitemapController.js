@@ -1,4 +1,3 @@
-import { Router } from 'express';
 import { navItems } from '../data/navItems.js';
 
 export const getSitemap = (req, res) => {

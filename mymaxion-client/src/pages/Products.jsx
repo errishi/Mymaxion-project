@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { ProductCard } from '../Components/Cards';
-import { products } from '../data';
+import { getProducts } from '../api';
+import useApi from '../hooks/useApi';
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const { data, loading, error } = useApi(getProducts);
+  const products = data || [];
 
-  const categories = ['All', ...new Set(products.map(p => p.category))];
+  const categories = ['All', ...new Set(products.map(p => p.category).filter(Boolean))];
   
   const filteredProducts = selectedCategory === 'All' 
     ? products 
@@ -50,7 +53,7 @@ export default function Products() {
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           {filteredProducts.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-xl text-gray-600">No products found in this category.</p>
+              <p className="text-xl text-gray-600">{loading ? 'Loading products...' : error || 'No products found in this category.'}</p>
             </div>
           ) : (
             <>
@@ -59,7 +62,7 @@ export default function Products() {
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredProducts.map(product => (
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCard key={product._id || product.id || product.slug} product={{ ...product, id: product._id || product.id }} />
                 ))}
               </div>
             </>

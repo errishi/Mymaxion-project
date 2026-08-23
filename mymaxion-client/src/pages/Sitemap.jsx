@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
+import { getSitemap } from '../api';
+import useApi from '../hooks/useApi';
 
 export default function Sitemap() {
-  const siteStructure = [
+  const { data, loading, error } = useApi(getSitemap);
+  const siteStructure = data?.nav ? [{ section: 'Navigation', links: data.nav }] : [];
+  /* const siteStructure = [
     {
       section: 'Main Pages',
       links: [
@@ -41,7 +45,7 @@ export default function Sitemap() {
         { label: 'Sitemap', path: '/sitemap' },
       ],
     },
-  ];
+  ]; */
 
   return (
     <div>
@@ -59,7 +63,9 @@ export default function Sitemap() {
       <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {siteStructure.map((section, idx) => (
+            {loading && <p className="text-gray-600">Loading sitemap...</p>}
+            {error && <p className="text-red-600">{error}</p>}
+            {!loading && !error && siteStructure.map((section, idx) => (
               <div
                 key={idx}
                 className="bg-amber-100 rounded-lg p-8 animate-fadeIn"

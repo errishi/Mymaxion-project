@@ -9,7 +9,8 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { ProductCard, ServiceCard } from '../Components/Cards';
-import { products, services } from '../data';
+import { getProducts, getServices } from '../api';
+import useApi from '../hooks/useApi';
 
 const principles = [
   {
@@ -35,6 +36,11 @@ const principles = [
 ];
 
 export default function Home() {
+  const productsState = useApi(getProducts);
+  const servicesState = useApi(getServices);
+  const products = productsState.data || [];
+  const services = servicesState.data || [];
+
   return (
     <div className="page-shell">
       {/* Hero Section */}
@@ -148,8 +154,10 @@ export default function Home() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {products.slice(0, 3).map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {productsState.loading && <p className="text-gray-600">Loading products...</p>}
+          {productsState.error && <p className="text-red-600">{productsState.error}</p>}
+          {!productsState.loading && !productsState.error && products.slice(0, 3).map((product) => (
+            <ProductCard key={product._id || product.id || product.slug} product={{ ...product, id: product._id || product.id }} />
           ))}
         </div>
       </section>
@@ -170,8 +178,10 @@ export default function Home() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.slice(0, 3).map((service) => (
-            <ServiceCard key={service.id} service={service} />
+          {servicesState.loading && <p className="text-gray-600">Loading services...</p>}
+          {servicesState.error && <p className="text-red-600">{servicesState.error}</p>}
+          {!servicesState.loading && !servicesState.error && services.slice(0, 3).map((service) => (
+            <ServiceCard key={service._id || service.id || service.slug} service={{ ...service, name: service.name || service.title, id: service._id || service.id }} />
           ))}
         </div>
       </section>

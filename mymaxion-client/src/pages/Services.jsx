@@ -1,8 +1,12 @@
 import { ServiceCard } from '../Components/Cards';
-import { services } from '../data';
+import { getServices } from '../api';
+import useApi from '../hooks/useApi';
 import { CheckCircle } from 'lucide-react';
 
 export default function Services() {
+  const { data: services, loading, error } = useApi(getServices);
+  const serviceItems = services || [];
+
   return (
     <div>
       {/* Hero Section */}
@@ -19,7 +23,9 @@ export default function Services() {
       <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map(service => (
+            {loading && <p className="text-gray-600">Loading services...</p>}
+            {error && <p className="text-red-600">{error}</p>}
+            {!loading && !error && serviceItems.map(service => (
               <ServiceCard key={service.id} service={service} />
             ))}
           </div>

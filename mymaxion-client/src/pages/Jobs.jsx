@@ -1,7 +1,11 @@
 import { MapPin, Building2, DollarSign, Clock } from 'lucide-react';
+import { getJobs } from '../api';
+import useApi from '../hooks/useApi';
 
 export default function Jobs() {
-  const jobListings = [
+  const { data, loading, error } = useApi(getJobs);
+  const jobListings = data || [];
+  /* const jobListings = [
     {
       id: 1,
       title: 'Senior Water Treatment Engineer',
@@ -98,7 +102,7 @@ export default function Jobs() {
         'Passion for learning',
       ],
     },
-  ];
+  ]; */
 
   return (
     <div>
@@ -151,7 +155,9 @@ export default function Jobs() {
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Open Positions</h2>
 
           <div className="space-y-6">
-            {jobListings.map((job) => (
+            {loading && <p className="text-gray-600">Loading open positions...</p>}
+            {error && <p className="text-red-600">{error}</p>}
+            {!loading && !error && jobListings.map((job) => (
               <div
                 key={job.id}
                 className="bg-white border border-gray-200 rounded-lg hover:shadow-lg transition duration-300 p-6 md:p-8 animate-slideUp"

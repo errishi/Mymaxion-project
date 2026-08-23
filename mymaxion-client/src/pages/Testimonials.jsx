@@ -1,8 +1,12 @@
-import { testimonials } from '../data';
+import { getTestimonials } from '../api';
+import useApi from '../hooks/useApi';
 import TestimonialSlider from '../Components/TestimonialSlider';
 import { Star } from 'lucide-react';
 
 export default function Testimonials() {
+  const { data, loading, error } = useApi(getTestimonials);
+  const testimonials = data || [];
+
   return (
     <div>
       {/* Hero Section */}
@@ -19,7 +23,9 @@ export default function Testimonials() {
       <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Featured Testimonials</h2>
-          <TestimonialSlider testimonials={testimonials} />
+          {loading && <p className="text-center text-gray-600">Loading testimonials...</p>}
+          {error && <p className="text-center text-red-600">{error}</p>}
+          {!loading && !error && <TestimonialSlider testimonials={testimonials} />}
         </div>
       </section>
 
@@ -29,7 +35,7 @@ export default function Testimonials() {
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">All Client Feedback</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {testimonials.map((testimonial) => (
+            {!loading && !error && testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
                 className="bg-gray-50 rounded-lg shadow-md border-l-4 border-ocean-600 p-8 hover:shadow-lg transition duration-300 animate-fadeIn"

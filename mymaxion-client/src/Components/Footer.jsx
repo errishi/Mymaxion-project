@@ -42,7 +42,7 @@ export default function Footer() {
             <h3 className="mb-4 text-xs font-bold uppercase tracking-[.16em] text-teal-300">Company</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
-                <li key={link.path}>
+                <li key={`${link.path}-${link.label}`}>
                   <Link
                     to={link.path}
                     className="text-sm text-slate-400 transition hover:text-white"
@@ -59,7 +59,7 @@ export default function Footer() {
             <h3 className="mb-4 text-xs font-bold uppercase tracking-[.16em] text-teal-300">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
-                <li key={link.path}>
+                <li key={`${link.path}-${link.label}`}>
                   <Link
                     to={link.path}
                     className="text-sm text-slate-400 transition hover:text-white"
@@ -76,7 +76,7 @@ export default function Footer() {
             <h3 className="mb-4 text-xs font-bold uppercase tracking-[.16em] text-teal-300">Support</h3>
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
-                <li key={link.path}>
+                <li key={`${link.path}-${link.label}`}>
                   <Link
                     to={link.path}
                     className="text-sm text-slate-400 transition hover:text-white"

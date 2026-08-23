@@ -7,16 +7,14 @@ This Express.js backend serves as the content engine for the MyMaxion corporate 
 - MongoDB via Mongoose (adjustable to PostgreSQL with Sequelize)
 - JWT authentication & role-based access (admin/staff)
 - Caching using `node-cache`
-- Security via Helmet, rate limiting, CORS
+- Security via Helmet and CORS
 - Dynamic HTML-to-JSON parsing using Cheerio
 - RSS feed generation for products
 - Asset serving and download endpoints
 - Internationalization file listing
 - Hit counter & analytics stub
-- Admin seeding utility
 - Dockerfile & docker-compose
 - ESLint & Prettier configuration
-- Unit tests with Jest & Supertest
 
 ## Quick Start
 
@@ -26,20 +24,15 @@ This Express.js backend serves as the content engine for the MyMaxion corporate 
    cd backend
    npm install
    ```
-3. Seed admin user:
-   ```bash
-   node src/utils/seedAdmin.js
-   ```
-4. Start development server:
+3. Start development server:
    ```bash
    npm run dev
    ```
    API available at `http://localhost:4000`.
 
-5. Build for production or use Docker:
+4. Build for production or use Docker:
    ```bash
    npm run docker:build
-   npm run docker:up
    ```
 
 ## API Endpoints
@@ -53,12 +46,6 @@ This Express.js backend serves as the content engine for the MyMaxion corporate 
 - `POST /api/auth/login` and `/register`
 - `GET /api/pages/:slug?` map to `.htm`
 - and many more (see routes folder).
-
-## Testing
-
-```bash
-npm test
-```
 
 ## Notes
 

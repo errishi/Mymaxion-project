@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { recordPageHit } from './api';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Home from './pages/Home';
@@ -20,6 +21,7 @@ function ScrollToTop() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    recordPageHit().catch(() => {});
   }, [pathname]);
 
   return null;

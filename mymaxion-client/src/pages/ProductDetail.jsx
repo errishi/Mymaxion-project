@@ -1,11 +1,17 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
-import { products } from '../data';
+import { getProduct, getProducts } from '../api';
+import useApi from '../hooks/useApi';
 import { ProductCard } from '../Components/Cards';
 
 export default function ProductDetail() {
   const { slug } = useParams();
-  const product = products.find(p => p.slug === slug);
+  const productState = useApi(() => getProduct(slug), [slug]);
+  const productsState = useApi(getProducts);
+  const product = productState.data;
+  const products = productsState.data || [];
+
+  if (productState.loading) return <div className="min-h-screen flex items-center justify-center">Loading product...</div>;
 
   if (!product) {
     return (
@@ -24,7 +30,7 @@ export default function ProductDetail() {
     );
   }
 
-  const relatedProducts = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 3);
+  const relatedProducts = products.filter(p => p.category === product.category && p.slug !== product.slug).slice(0, 3);
 
   return (
     <div>
@@ -151,7 +157,7 @@ export default function ProductDetail() {
             <h2 className="text-3xl font-bold text-gray-900 mb-12">Related Products</h2>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {relatedProducts.map(prod => <ProductCard key={prod.id} product={prod} />)}
+              {relatedProducts.map(prod => <ProductCard key={prod._id || prod.id || prod.slug} product={{ ...prod, id: prod._id || prod.id }} />)}
             </div>
           </div>
         </section>
