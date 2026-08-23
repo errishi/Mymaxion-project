@@ -33,12 +33,14 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button - Desktop */}
-          <Link
-            to="/contact"
-            className="btn-primary hidden lg:inline-flex"
-          >
-            Start a conversation <ArrowUpRight size={16} />
-          </Link>
+          <div className="hidden lg:block">
+            <Link
+              to="/contact"
+              className="btn-primary inline-flex"
+            >
+              Start a conversation <ArrowUpRight size={16} />
+            </Link>
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -63,13 +65,6 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="btn-primary mt-2 w-full justify-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Start a conversation
-            </Link>
           </div>
         )}
       </div>
