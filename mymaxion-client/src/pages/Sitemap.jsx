@@ -3,9 +3,9 @@ import { getSitemap } from '../api';
 import useApi from '../hooks/useApi';
 
 export default function Sitemap() {
-  const { data, loading, error } = useApi(getSitemap);
-  const siteStructure = data?.nav ? [{ section: 'Navigation', links: data.nav }] : [];
-  /* const siteStructure = [
+  const { loading, error } = useApi(getSitemap);
+
+  const siteStructure = [
     {
       section: 'Main Pages',
       links: [
@@ -45,16 +45,18 @@ export default function Sitemap() {
         { label: 'Sitemap', path: '/sitemap' },
       ],
     },
-  ]; */
+  ];
 
   return (
-    <div>
+    <div className="bg-white text-gray-800">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
-        <div className="container mx-auto max-w-6xl px-4 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-slideInDown">Sitemap</h1>
-          <p className="text-lg text-beach-100 animate-slideUp">
-            Navigate through all pages and sections of MyMaxion website.
+      <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-900 py-20 md:py-32 relative overflow-hidden">
+        <div className="container mx-auto max-w-6xl px-4 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 animate-slideInDown">
+            Sitemap
+          </h1>
+          <p className="text-lg md:text-xl text-beach-100 animate-slideUp">
+            Explore all pages and sections of the MyMaxion website.
           </p>
         </div>
       </section>
@@ -68,9 +70,9 @@ export default function Sitemap() {
             {!loading && !error && siteStructure.map((section, idx) => (
               <div
                 key={idx}
-                className="bg-amber-100 rounded-lg p-8 animate-fadeIn"
+                className="bg-white shadow-md rounded-lg p-8 hover:shadow-lg transition duration-300 animate-fadeIn"
               >
-                <h2 className="text-xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-ocean-600">
+                <h2 className="text-xl font-semibold text-gray-900 mb-6 pb-3 border-b-2 border-ocean-600">
                   {section.section}
                 </h2>
                 <ul className="space-y-3">
@@ -78,7 +80,7 @@ export default function Sitemap() {
                     <li key={linkIdx}>
                       <Link
                         to={link.path}
-                        className="text-ocean-600 hover:text-ocean-700 hover:underline transition duration-300 text-sm"
+                        className="text-ocean-600 hover:text-ocean-700 hover:underline transition duration-300 text-sm font-medium"
                       >
                         {link.label}
                       </Link>
@@ -91,63 +93,48 @@ export default function Sitemap() {
         </div>
       </section>
 
-      {/* Additional Info */}
-      <section className="py-16 md:py-24 bg-amber-50">
+      {/* Website Structure */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Website Structure</h2>
-            
-            <div className="space-y-6 text-gray-700">
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Home Page</h3>
-                <p>Main landing page featuring company overview, featured products, services, and call-to-action sections.</p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">About Us</h3>
-                <p>Company history, mission, vision, core values, team information, and industry recognition.</p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Products</h3>
-                <p>Complete catalog of packaging and industrial equipment with detailed descriptions and specifications.</p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Services</h3>
-                <p>Comprehensive service offerings including environmental services, water treatment solutions, and infrastructure development.</p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Contact Us</h3>
-                <p>Contact form, location information, phone numbers, and email addresses for inquiry and support.</p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Testimonials</h3>
-                <p>Client success stories and reviews showcasing our expertise and customer satisfaction.</p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Jobs</h3>
-                <p>Current employment opportunities and career information.</p>
-              </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Website Structure
+            </h2>
+            <div className="space-y-6 text-gray-700 leading-relaxed">
+              {[
+                { title: 'Home Page', desc: 'Main landing page featuring company overview, featured products, services, and call-to-action sections.' },
+                { title: 'About Us', desc: 'Company history, mission, vision, core values, team information, and industry recognition.' },
+                { title: 'Products', desc: 'Complete catalog of packaging and industrial equipment with detailed descriptions and specifications.' },
+                { title: 'Services', desc: 'Comprehensive service offerings including environmental services, water treatment solutions, and infrastructure development.' },
+                { title: 'Contact Us', desc: 'Contact form, location information, phone numbers, and email addresses for inquiry and support.' },
+                { title: 'Testimonials', desc: 'Client success stories and reviews showcasing our expertise and customer satisfaction.' },
+                { title: 'Jobs', desc: 'Current employment opportunities and career information.' },
+              ].map((item, idx) => (
+                <div key={idx}>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Search Suggestion */}
-      <section className="py-16 md:py-24 bg-beach-100">
+      {/* Support Section */}
+      <section className="py-16 md:py-24 bg-gray-300">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Can't Find What You're Looking For?</h2>
-          <p className="text-gray-700 mb-6">Contact our support team for help navigating our website or finding specific information.</p>
-          <a
-            href="/contact"
-            className="inline-flex items-center px-8 py-3 bg-amber-100 text-gray-900 font-bold rounded-lg hover:bg-amber-500 transition duration-300"
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Can't Find What You're Looking For?
+          </h2>
+          <p className="text-gray-700 mb-6">
+            Contact our support team for help navigating our website or finding specific information.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center px-8 py-3 bg-primary-ocean-500 text-white font-semibold rounded-lg hover:bg-primary-ocean-800 transition duration-300"
           >
             Contact Support
-          </a>
+          </Link>
         </div>
       </section>
     </div>

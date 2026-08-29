@@ -36,9 +36,6 @@ export default function ServiceDetail() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-ocean-500 via-beach-500 to-beach-300 text-gray-800 py-20 md:py-32 relative overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
-          <p className="text-ocean-200 mb-2">
-            <Link to="/services" className="hover:text-white">Services</Link> / {service.name}
-          </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-slideInDown">{service.name}</h1>
           <p className="text-lg text-ocean-100 animate-slideUp">{service.description}</p>
         </div>
@@ -49,9 +46,15 @@ export default function ServiceDetail() {
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Service Image */}
-            <div className="bg-gradient-to-br from-beach-100 to-ocean-50 rounded-lg h-80 flex items-center justify-center text-beach-600 font-semibold text-center text-xl animate-slideInDown">
-              Service Image: {service.name}
-            </div>
+            <img
+              src={service.image || '/wastewater.webp'}
+              alt={service.name}
+              className="w-full h-80 object-cover rounded-lg shadow-lg animate-slideInDown"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = '/wastewater.webp';
+              }}
+            />
 
             {/* Service Info */}
             <div className="animate-slideUp">
@@ -147,8 +150,8 @@ export default function ServiceDetail() {
                   <div className="hidden md:block absolute top-12 left-16 w-12 h-0.5 bg-ocean-300"></div>
                 )}
                 <div className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition duration-300 border border-gray-200">
-                  <div className="w-12 h-12 bg-ocean-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
-                    {item.step}
+                  <div className="w-12 h-12 bg-ocean-700 text-black rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
+                    <span className="text-black">{item.step}</span>
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-gray-600 text-sm">{item.desc}</p>
@@ -168,9 +171,15 @@ export default function ServiceDetail() {
             <div className="grid md:grid-cols-2 gap-8">
               {relatedServices.map(svc => (
                 <div key={svc.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 animate-fadeIn">
-                  <div className="w-full h-40 bg-gradient-to-br from-beach-100 to-ocean-50 flex items-center justify-center text-beach-600 font-semibold text-center">
-                    {svc.name}
-                  </div>
+                  <img
+                    src={svc.image || '/wastewater.webp'}
+                    alt={svc.name}
+                    className="w-full h-40 object-cover"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = '/wastewater.webp';
+                    }}
+                  />
                   <div className="p-6">
                     <h3 className="text-lg font-bold text-gray-900 mb-2">{svc.name}</h3>
                     <p className="text-gray-600 text-sm mb-4">{svc.description}</p>

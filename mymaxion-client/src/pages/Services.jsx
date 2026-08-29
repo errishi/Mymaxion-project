@@ -5,7 +5,7 @@ import { CheckCircle } from 'lucide-react';
 
 export default function Services() {
   const { data: services, loading, error } = useApi(getServices);
-  const serviceItems = services || [];
+  const serviceItems = (services || []).filter(service => service?.name && service.name.trim() !== '');
 
   return (
     <div>
@@ -128,9 +128,9 @@ export default function Services() {
       {/* Process Section */}
       <section className="py-16 md:py-24 bg-amber-50">
         <div className="container mx-auto max-w-6xl px-4 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Our Service Process</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-12 text-center">Our Service Process</h2>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-4 gap-6 text-black">
             {[
               {
                 step: '01',
@@ -160,7 +160,7 @@ export default function Services() {
                 )}
 
                 <div className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition duration-300 animate-slideUp">
-                  <div className="w-16 h-16 bg-ocean-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  <div className="w-16 h-16 bg-ocean-600 text-black rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                     {item.step}
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
