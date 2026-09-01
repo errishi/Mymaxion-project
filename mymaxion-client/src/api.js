@@ -1,4 +1,4 @@
-const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+const baseURL = import.meta.env.VITE_API_URL;
 
 const normalizeProduct = (product) => ({ ...product, id: product._id || product.id });
 const normalizeService = (service) => ({ ...service, id: service._id || service.id, name: service.name || service.title });
@@ -20,13 +20,13 @@ const request = async (path, options = {}) => {
   return data;
 };
 
-export const getProducts = () => request('/products').then((items) => items.map(normalizeProduct));
-export const getProduct = (slug) => request(`/products/${slug}`).then(normalizeProduct);
-export const getServices = () => request('/services').then((items) => items.map(normalizeService));
-export const getService = (slug) => request(`/services/${slug}`).then(normalizeService);
-export const getJobs = () => request('/jobs').then((items) => items.map(normalizeJob));
-export const getTestimonials = () => request('/testimonials').then((items) => items.map(normalizeTestimonial));
-export const submitEnquiry = (enquiry) => request('/enquiries', { method: 'POST', body: JSON.stringify(enquiry) });
-export const getSitemap = () => request('/sitemap');
-export const recordPageHit = () => request('/analytics/hit', { method: 'POST' });
+export const getProducts = () => request('/api/products').then((items) => items.map(normalizeProduct));
+export const getProduct = (slug) => request(`/api/products/${slug}`).then(normalizeProduct);
+export const getServices = () => request('/api/services').then((items) => items.map(normalizeService));
+export const getService = (slug) => request(`/api/services/${slug}`).then(normalizeService);
+export const getJobs = () => request('/api/jobs').then((items) => items.map(normalizeJob));
+export const getTestimonials = () => request('/api/testimonials').then((items) => items.map(normalizeTestimonial));
+export const submitEnquiry = (enquiry) => request('/api/enquiries', { method: 'POST', body: JSON.stringify(enquiry) });
+export const getSitemap = () => request('/api/sitemap');
+export const recordPageHit = () => request('/api/analytics/hit', { method: 'POST' });
 
