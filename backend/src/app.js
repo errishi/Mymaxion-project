@@ -15,6 +15,8 @@ import enquiriesRouter from './routes/enquiries.js';
 import authRouter from './routes/auth.js';
 import sitemapRouter from './routes/sitemap.js';
 import i18nRouter from './routes/i18n.js';
+import analyticsRouter from './routes/analytics.js';
+import filesRouter from './routes/files.js';
 
 dotenv.config();
 
@@ -37,9 +39,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/sitemap', sitemapRouter);
 app.use('/api/i18n', i18nRouter);
 app.use('/api/pages', (await import('./routes/pages.js')).default);
-import analyticsRouter from './routes/analytics.js';
 app.use('/api/analytics', analyticsRouter);
-import filesRouter from './routes/files.js';
 app.use('/api/files', filesRouter);
 
 app.get("/", (req,res) => {
