@@ -21,12 +21,28 @@ import filesRouter from './routes/files.js';
 dotenv.config();
 
 const app = express();
+const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:5173')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 // middleware
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: process.env.CORS_ORIGIN || '*' }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
+    },
+    credentials: true,
+  })
+);
 app.use(morgan('dev'));
 
 // routes

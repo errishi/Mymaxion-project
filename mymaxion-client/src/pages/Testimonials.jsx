@@ -6,7 +6,7 @@ import { Star } from 'lucide-react';
 export default function Testimonials() {
   const { data, loading, error } = useApi(getTestimonials);
   const testimonials = data || [];
-
+  
   return (
     <div>
       {/* Hero Section */}
