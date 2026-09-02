@@ -58,8 +58,8 @@ app.use('/api/pages', (await import('./routes/pages.js')).default);
 app.use('/api/analytics', analyticsRouter);
 app.use('/api/files', filesRouter);
 
-app.get("/", (req,res) => {
-  res.send("Welcome to mymaxion..");
+app.get("/health", (req,res) => {
+  res.status(200).send("server is working....");
 });
 
 // static assets
