@@ -1,4 +1,5 @@
-const baseURL = import.meta.env.VITE_API_URL;
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+const apiBaseURL = baseURL.replace(/\/$/, '');
 
 const normalizeProduct = (product) => ({ ...product, id: product._id || product.id });
 const normalizeService = (service) => ({ ...service, id: service._id || service.id, name: service.name || service.title });
@@ -7,7 +8,9 @@ const normalizeTestimonial = (testimonial) => ({ ...testimonial, id: testimonial
 
 const request = async (path, options = {}) => {
   const token = localStorage.getItem('mymaxion_token');
-  const response = await fetch(`${baseURL}${path}`, {
+  const url = path.startsWith('http') ? path : `${apiBaseURL}${path}`;
+
+  const response = await fetch(url, {
     ...options,
     headers: {
       'Content-Type': 'application/json',
@@ -15,6 +18,7 @@ const request = async (path, options = {}) => {
       ...options.headers,
     },
   });
+
   const data = await response.json();
   if (!response.ok) throw Object.assign(new Error(data.error || data.message || 'Request failed.'), { response: { data } });
   return data;
