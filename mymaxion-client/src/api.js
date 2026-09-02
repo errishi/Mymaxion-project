@@ -1,4 +1,4 @@
-const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 const apiBaseURL = baseURL.replace(/\/$/, '');
 
 const normalizeProduct = (product) => ({ ...product, id: product._id || product.id });
